@@ -2,9 +2,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { AppLayoutComponent } from "./layout/app.layout.component";
-import { ErrorComponent } from './pages/error/error.component';
-import { RegistrationComponent } from './pages/registration/registration.component';
-import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
     imports: [
@@ -12,7 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
             {
                 path: '' , component: AppLayoutComponent,
                 children: [
-                    { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
+                    { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) , canActivate: [AuthGuard]},
                     // { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
                     // { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
                     // { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
@@ -23,9 +21,9 @@ import { LoginComponent } from './pages/login/login.component';
             // { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
             // { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
             { path: 'notfound', component: NotfoundComponent },
-            { path: 'donorRegisration', component: RegistrationComponent },
-            { path: 'login', component: LoginComponent },
-            { path: 'error', component: ErrorComponent },
+            { path: 'donorRegisration', loadChildren:() => import('./pages/registration/registration.module').then(m=>m.RegistrationModule) },
+            { path: 'login', loadChildren:() => import('./pages/login/login.module').then(m=>m.LoginModule) },
+            { path: 'error', loadChildren: ()=> import('./pages/error/error.module').then(m=>m.ErrorModule) },
             { path: '**', redirectTo: '/notfound' },
         ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
     ],

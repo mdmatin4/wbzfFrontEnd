@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
   selector: 'app-notfound',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class NotfoundComponent {
 
+  constructor(public layoutService: LayoutService) { 
+  }
 }

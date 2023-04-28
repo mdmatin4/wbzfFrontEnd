@@ -5,6 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { AppLayoutModule } from './layout/app.layout.module';
+import { JwtModule } from "@auth0/angular-jwt";
+import { UserService } from './core/services/user.service';
+import { MessageService } from 'primeng/api';
+
+export function tokenGetter() { 
+  return localStorage.getItem("jwt"); 
+}
 
 @NgModule({
   declarations: [
@@ -13,9 +20,16 @@ import { AppLayoutModule } from './layout/app.layout.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, AppLayoutModule
+    AppRoutingModule, AppLayoutModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["*"],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+  providers: [UserService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
