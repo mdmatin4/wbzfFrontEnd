@@ -1,3 +1,14 @@
 <p>dashboard works!</p>
 
+<div *ngIf="isUserAuthenticated()" style="color:blue;">
+    <h2>
+      YOU ARE LOGGED IN as 
+    </h2>
+  </div>
+  
+  <br>
+  <ul>
+    <li *ngIf="isUserAuthenticated()"><a class="logout" (click)="logout()">Logout</a></li>
+  </ul>
+
 
