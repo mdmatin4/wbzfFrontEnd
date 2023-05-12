@@ -1,0 +1,29 @@
+<form [formGroup]="dateRangeForm" ngNativeValidate (ngSubmit)="onSubmit(dateRangeForm)">
+  
+  <p-calendar selectionMode="range" formControlName="dateRange" [readonlyInput]="true" [showIcon]="true"></p-calendar>
+  <div *ngIf="dateRangeForm.get('dateRange')?.invalid && dateRangeForm.get('dateRange')?.touched">
+    <small class="text-danger">Please enter a date range.</small>
+  </div>
+  <p-messages [(value)]="msgs1" [enableService]="false" [closable]="false" ></p-messages>
+  <button label="Show" [disabled]="dateRangeForm.invalid " pButton pRipple ></button>
+</form>
+
+<div class="container-fluid">
+    <div class="row">
+      
+      <div class="col-4">
+          <div echarts [options]="chartOption1" class="demo-chart"></div>
+     </div>
+     <div class="col-5">
+      <div echarts [options]="chartOption5" class="demo-chart"></div>
+  </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+          <div echarts [options]="chartOption3" class="demo-chart"></div>
+      </div>
+      <div class="col-8">
+          <div echarts [options]="chartOption4" class="demo-chart"></div>
+      </div>
+    </div>
+  </div>

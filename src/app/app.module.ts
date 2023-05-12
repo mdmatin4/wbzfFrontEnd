@@ -8,6 +8,7 @@ import { AppLayoutModule } from './layout/app.layout.module';
 import { JwtModule } from "@auth0/angular-jwt";
 import { UserService } from './core/services/user.service';
 import { MessageService } from 'primeng/api';
+import { ProfessionService } from './services/profession.service';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -29,7 +30,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [UserService, MessageService],
+  providers: [UserService, MessageService, ProfessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

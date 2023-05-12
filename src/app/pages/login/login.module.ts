@@ -9,8 +9,6 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages'
-import { UserService } from 'src/app/core/services/user.service';
-import { MessageService } from 'primeng/api';
 
 @NgModule({
     imports: [

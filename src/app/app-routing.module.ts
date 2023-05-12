@@ -22,6 +22,7 @@ import { AuthGuard } from './core/guards/auth.guard';
             // { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
             { path: 'notfound', component: NotfoundComponent },
             { path: 'donorRegisration', loadChildren:() => import('./pages/registration/registration.module').then(m=>m.RegistrationModule) },
+            { path: 'chart', loadChildren:() => import('./pages/chart/chart.module').then(m=>m.ChartModule) },
             { path: 'login', loadChildren:() => import('./pages/login/login.module').then(m=>m.LoginModule) },
             { path: 'error', loadChildren: ()=> import('./pages/error/error.module').then(m=>m.ErrorModule) },
             { path: '**', redirectTo: '/notfound' },
