@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "@auth0/angular-jwt": "^5.1.2",
+    "@superset-ui/embedded-sdk": "^0.1.0-alpha.9",
     "echarts": "^5.4.2",
     "ngx-echarts": "^15.0.3",
     "primeflex": "^3.3.0",
